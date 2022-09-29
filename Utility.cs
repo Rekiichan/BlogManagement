@@ -12,7 +12,6 @@ namespace DevBlog
             {
                 var file = File.Create(path);
                 file.Close();
-
             }
             using (StreamWriter writer = new StreamWriter(path, append: append))
             {
@@ -22,7 +21,6 @@ namespace DevBlog
                     data = data.Trim().Substring(1, data.Trim().Length - 1);
                     //remove last bracket "]" from data passed
                     data = data.Trim().Substring(0, data.Trim().Length - 1);
-
                 }
                 if (count != 0)
                 {

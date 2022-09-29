@@ -6,7 +6,7 @@ namespace DevBlog
     public class Blogger
     {
         
-        private string _filePath = "student.json";
+        private string _filePath = "BlogRecord.json";
 
         private int ID { set; get; }
 
@@ -58,6 +58,73 @@ namespace DevBlog
 
             System.Console.WriteLine($"Enter Address: ");
             Address = Console.ReadLine();
+        }
+        public List<Blogger> Sort(List<Blogger> listBloggers, string sortType)
+        {
+            if (sortType == "First Name")
+            {
+                string[] list = new string[listBloggers.Count];
+
+                //Adding names of the bloggers to the list
+                for (var i = 0; i < listBloggers.Count; i++)
+                {
+                    list[i] = listBloggers[i].Name;
+                }
+
+                //implementing bubble sort algorithm
+                for (int i = list.Length - 1; i > 0; i--)
+                {
+                    for (int j = 0; j <= i - 1; j++)
+                    {
+                        //comparing the names from the list with each other
+                        if (list[j].CompareTo(list[j + 1]) > 0) 
+                        {
+                            //swapping names if current element is greater than next element
+                            string name = list[j];
+                            list[j] = list[j + 1];
+                            list[j + 1] = name;
+
+                            //swapping the whole list of bloggers in ascending order according to the name 
+                            Blogger nameLists = listBloggers[j];
+                            listBloggers[j] = listBloggers[j + 1];
+                            listBloggers[j + 1] = nameLists;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                DateTime[] list = new DateTime[listBloggers.Count];
+
+                //Adding registration dates of the bloggers to the list
+                for (var i = 0; i < listBloggers.Count; i++)
+                {
+                    list[i] = listBloggers[i].RegistrationDate;
+                }
+
+                //implementing bubble sort algorithm
+                for (int i = list.Length - 1; i > 0; i--)
+                {
+                    for (int j = 0; j <= i - 1; j++)
+                    {
+                        //comparing the registration dates of bloggers from the list with each other
+                        if (list[j].CompareTo(list[j + 1]) > 0)
+                        {
+                            //swapping if current element is greater than next element
+                            DateTime registerDate = list[j];
+                            list[j] = list[j + 1];
+                            list[j + 1] = registerDate;
+
+                            //swapping the whole list of blogger in ascending order according to the blogger registration date
+                            Blogger regDateList = listBloggers[j];
+                            listBloggers[j] = listBloggers[j + 1];
+                            listBloggers[j + 1] = regDateList;
+                        }
+                    }
+                }
+            }
+            // returns the sorted list
+            return listBloggers;
         }
 
         public List<Blogger> List()
