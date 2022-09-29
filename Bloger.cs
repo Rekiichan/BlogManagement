@@ -1,11 +1,8 @@
-
-using Newtonsoft.Json;
-
 namespace DevBlog
 {
     public class Blogger : IBlogger
     {
-        
+
         private string _filePath = "BlogRecord.txt";
 
         public int ID { set; get; }
@@ -24,8 +21,8 @@ namespace DevBlog
 
         public string? Address { set; get; }
 
-        public Blogger()
-        {}
+        // public Blogger()
+        // {}
         // public Blogger(int _id, string _name, string _phone, DateTime _BirthDate, string _email,
         //                 DateTime _registrationDate, string _gender, string _address)
         // {
@@ -38,18 +35,18 @@ namespace DevBlog
         //     blg.RegistrationDate = _registrationDate;
         //     blg.Gender = _gender;
         //     blg.Address = _address;
-        //     blg.Add(blg);
+        //     blg.AddBlog(blg);
         // }
-        public void Add(Blogger std)
+        public void AddBlog(Blogger blg)
         {
             Random r = new Random();
-            std.ID = r.Next(10000, 100000);
+            blg.ID = r.Next(10000, 100000);
 
             System.Console.WriteLine($"Enter Name: ");
-            Name = Console.ReadLine();
+            blg.Name = Console.ReadLine();
 
             System.Console.WriteLine($"Enter Phone: ");
-            Phone = Console.ReadLine();
+            blg.Phone = Console.ReadLine();
 
             System.Console.WriteLine($"Enter BirthDate: ");
             Console.Write("Enter a month: ");
@@ -58,10 +55,10 @@ namespace DevBlog
             int day = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter a year: ");
             int year = Convert.ToInt32(Console.ReadLine());
-            BirthDate = new DateTime(year, month, day);
+            blg.BirthDate = new DateTime(year, month, day);
 
             System.Console.WriteLine($"Enter Email: ");
-            Email = Console.ReadLine();
+            blg.Email = Console.ReadLine();
 
             System.Console.WriteLine($"Enter Registration Date: ");
             Console.Write("Enter a month: ");
@@ -70,16 +67,17 @@ namespace DevBlog
             day = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter a year: ");
             year = Convert.ToInt32(Console.ReadLine());
-            RegistrationDate = new DateTime(year, month, day);
+            blg.RegistrationDate = new DateTime(year, month, day);
 
             System.Console.WriteLine($"Enter Gender: ");
-            Gender = Console.ReadLine();
+            blg.Gender = Console.ReadLine();
 
             System.Console.WriteLine($"Enter Address: ");
-            Address = Console.ReadLine();
+            blg.Address = Console.ReadLine();
 
-            Utility.WriteToTextFile(_filePath,std);
+            Utility.WriteToTextFile(_filePath,blg);
         }
+
         public List<Blogger> Sort(List<Blogger> listBloggers, string sortType)
         {
             if (sortType == "Name")
