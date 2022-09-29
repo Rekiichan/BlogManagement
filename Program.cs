@@ -1,4 +1,4 @@
 ﻿using DevBlog;
-Student std = new Student();
+Blogger std = new Blogger();
 std.Add(std);
 std.Display();

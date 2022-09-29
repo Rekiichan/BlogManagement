@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace DevBlog
 {
-    public class Student
+    public class Blogger
     {
         
         private string _filePath = "student.json";
@@ -24,7 +24,7 @@ namespace DevBlog
 
         private string? Address { set; get; }
 
-        public void Add(Student std)
+        public void Add(Blogger std)
         {
             Random r = new Random();
             std.ID = r.Next(10000, 100000);
@@ -60,12 +60,12 @@ namespace DevBlog
             Address = Console.ReadLine();
         }
 
-        public List<Student> List()
+        public List<Blogger> List()
         {
             string objList = Utility.ReadFromTextFile(_filePath);
             if (objList != null)
             {
-                List<Student> lst = JsonConvert.DeserializeObject<List<Student>>(objList);
+                List<Blogger> lst = JsonConvert.DeserializeObject<List<Blogger>>(objList);
                 return lst;
             }
             else
