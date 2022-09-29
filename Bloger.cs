@@ -3,18 +3,18 @@ using Newtonsoft.Json;
 
 namespace DevBlog
 {
-    public class Blogger
+    public class Blogger : IBlogger
     {
         
-        private string _filePath = "BlogRecord.json";
+        private string _filePath = "BlogRecord.txt";
 
-        private int ID { set; get; }
+        public int ID { set; get; }
 
-        private string? Name { set; get; }
+        public string? Name { set; get; }
 
-        private string? Phone { set; get; }
+        public string? Phone { set; get; }
 
-        private DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         public string? Email { get; set; }
 
@@ -22,12 +22,31 @@ namespace DevBlog
 
         public string? Gender { get; set; }
 
-        private string? Address { set; get; }
+        public string? Address { set; get; }
 
+        public Blogger()
+        {}
+        // public Blogger(int _id, string _name, string _phone, DateTime _BirthDate, string _email,
+        //                 DateTime _registrationDate, string _gender, string _address)
+        // {
+        //     Blogger blg = new Blogger();
+        //     blg.ID = _id;
+        //     blg.Name = _name;
+        //     blg.Phone = _phone;
+        //     blg.BirthDate = _BirthDate;
+        //     blg.Email = _email;
+        //     blg.RegistrationDate = _registrationDate;
+        //     blg.Gender = _gender;
+        //     blg.Address = _address;
+        //     blg.Add(blg);
+        // }
         public void Add(Blogger std)
         {
             Random r = new Random();
             std.ID = r.Next(10000, 100000);
+
+            System.Console.WriteLine($"Enter Name: ");
+            Name = Console.ReadLine();
 
             System.Console.WriteLine($"Enter Phone: ");
             Phone = Console.ReadLine();
@@ -58,31 +77,32 @@ namespace DevBlog
 
             System.Console.WriteLine($"Enter Address: ");
             Address = Console.ReadLine();
+
+            Utility.WriteToTextFile(_filePath,std);
         }
         public List<Blogger> Sort(List<Blogger> listBloggers, string sortType)
         {
-            if (sortType == "First Name")
+            if (sortType == "Name")
             {
-                string[] list = new string[listBloggers.Count];
-
-                //Adding names of the bloggers to the list
+    //Adding names of the bloggers to the list
+                List<Blogger> list = new List<Blogger>(listBloggers);
                 for (var i = 0; i < listBloggers.Count; i++)
                 {
-                    list[i] = listBloggers[i].Name;
+                    list.Add(listBloggers[i]);
                 }
 
                 //implementing bubble sort algorithm
-                for (int i = list.Length - 1; i > 0; i--)
+                for (int i = list.Count - 1; i > 0; i--)
                 {
                     for (int j = 0; j <= i - 1; j++)
                     {
                         //comparing the names from the list with each other
-                        if (list[j].CompareTo(list[j + 1]) > 0) 
+                        if (list[j].Equals(list[j + 1])) 
                         {
                             //swapping names if current element is greater than next element
-                            string name = list[j];
+                            var tmp = list[j];
                             list[j] = list[j + 1];
-                            list[j + 1] = name;
+                            list[j + 1] = tmp;
 
                             //swapping the whole list of bloggers in ascending order according to the name 
                             Blogger nameLists = listBloggers[j];
@@ -126,21 +146,6 @@ namespace DevBlog
             // returns the sorted list
             return listBloggers;
         }
-
-        public List<Blogger> List()
-        {
-            string objList = Utility.ReadFromTextFile(_filePath);
-            if (objList != null)
-            {
-                List<Blogger> lst = JsonConvert.DeserializeObject<List<Blogger>>(objList);
-                return lst;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         public void Display()
         {
             System.Console.WriteLine($"ID: {ID}");

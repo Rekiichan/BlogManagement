@@ -13,3 +13,5 @@
 /home/c9violet/workspace/dotnetWorkspace/DevBlog/obj/Debug/net6.0/DevBlog.pdb
 /home/c9violet/workspace/dotnetWorkspace/DevBlog/obj/Debug/net6.0/DevBlog.genruntimeconfig.cache
 /home/c9violet/workspace/dotnetWorkspace/DevBlog/obj/Debug/net6.0/ref/DevBlog.dll
+/home/c9violet/workspace/dotnetWorkspace/DevBlog/bin/Debug/net6.0/Newtonsoft.Json.dll
+/home/c9violet/workspace/dotnetWorkspace/DevBlog/obj/Debug/net6.0/DevBlog.csproj.CopyComplete
