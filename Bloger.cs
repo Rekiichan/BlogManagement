@@ -3,7 +3,7 @@ namespace DevBlog
     public class Blogger : IBlogger
     {
 
-        private string _filePath = "BlogRecord.txt";
+        public static string _filePath = "BlogRecord.txt";
 
         public int ID { set; get; }
 
@@ -21,22 +21,23 @@ namespace DevBlog
 
         public string? Address { set; get; }
 
-        // public Blogger()
-        // {}
-        // public Blogger(int _id, string _name, string _phone, DateTime _BirthDate, string _email,
-        //                 DateTime _registrationDate, string _gender, string _address)
-        // {
-        //     Blogger blg = new Blogger();
-        //     blg.ID = _id;
-        //     blg.Name = _name;
-        //     blg.Phone = _phone;
-        //     blg.BirthDate = _BirthDate;
-        //     blg.Email = _email;
-        //     blg.RegistrationDate = _registrationDate;
-        //     blg.Gender = _gender;
-        //     blg.Address = _address;
-        //     blg.AddBlog(blg);
-        // }
+        public Blogger()
+        {}
+        public Blogger(int _id, string _name, string _phone, DateTime _BirthDate, string _email,
+                        DateTime _registrationDate, string _gender, string _address)
+        {
+            Blogger blg = new Blogger();
+            int _ID = Convert.ToInt32(_id);
+            blg.ID = _ID;
+            blg.Name = _name;
+            blg.Phone = _phone;
+            blg.BirthDate = _BirthDate;
+            blg.Email = _email;
+            blg.RegistrationDate = _registrationDate;
+            blg.Gender = _gender;
+            blg.Address = _address;
+            blg.AddBlog(blg);
+        }
         public void AddBlog(Blogger blg)
         {
             Random r = new Random();
@@ -144,17 +145,17 @@ namespace DevBlog
             // returns the sorted list
             return listBloggers;
         }
-        public void Display()
+        public static void Display(Blogger blg)
         {
-            System.Console.WriteLine($"ID: {ID}");
-            System.Console.WriteLine($"Name: {Name}");
-            System.Console.WriteLine(BirthDate.ToString("MM/dd/yyyy"));
-            System.Console.WriteLine($"Phone: {Phone}");
-            System.Console.WriteLine(RegistrationDate.ToString("MM/dd/yyyy"));
-            System.Console.WriteLine($"Email: {Email}");
-            System.Console.WriteLine($"Gender: {Gender}");
-            System.Console.WriteLine($"Address: {Address}");
-            System.Console.WriteLine($"Address: {Address}");
+            System.Console.WriteLine($"ID: {blg.ID}");
+            System.Console.WriteLine($"Name: {blg.Name}");
+            System.Console.WriteLine(blg.BirthDate.ToString("MM/dd/yyyy"));
+            System.Console.WriteLine($"Phone: {blg.Phone}");
+            System.Console.WriteLine(blg.RegistrationDate.ToString("MM/dd/yyyy"));
+            System.Console.WriteLine($"Email: {blg.Email}");
+            System.Console.WriteLine($"Gender: {blg.Gender}");
+            System.Console.WriteLine($"Address: {blg.Address}");
+            System.Console.WriteLine($"Address: {blg.Address}");
         }
     }
 }

@@ -34,22 +34,41 @@ namespace DevBlog
                 writer.Write("\n");
             }
         }
-        public static void ProcessString(string str)
+
+        public static List<Blogger> ProcessString(string str)
         {
             List<Blogger> blg = new List<Blogger>();
             string[] BlogList = str.Split('\n');
             for (int i = 0; i < BlogList.Length; i++)
             {
-                if (BlogList[i].Length > 1)
+                if (BlogList[i].Length > 5)
                 {
-                    var Blog = BlogList[i].Split(',');
-                    System.Console.WriteLine(BlogList[i]);
+                    var Blog = BlogList[i].Split(", ");
+                    int id = Convert.ToInt32(Blog[0].ToString());
+                    string name = Blog[1].ToString();
+                    string phone = Blog[2];
+                    var tmp = Blog[3].ToString().Split("/");
+                    DateTime birth =
+                        new DateTime(Convert.ToInt32(tmp[2]),
+                            Convert.ToInt32(tmp[1]),
+                            Convert.ToInt32(tmp[0]));
+                    string email = Blog[4].ToString();
+                    tmp = Blog[5].ToString().Split("/");
+                    DateTime registDate =
+                        new DateTime(Convert.ToInt32(tmp[2]),
+                            Convert.ToInt32(tmp[1]),
+                            Convert.ToInt32(tmp[0]));
+                    string gender = Blog[5].ToString();
+                    string address = Blog[6].ToString();
+                    blg.Add(new Blogger(id, name, phone, birth, email, registDate, gender, address));
                 }
             }
-                System.Console.WriteLine(BlogList.Length);
+            return blg;
         }
-        public static string ReadToTextFile(string path)
+
+        public static List<Blogger> ReadToTextFile(string path)
         {
+            List<Blogger> Blg = new List<Blogger>();
             try
             {
                 // Create an instance of StreamReader to read from a file.
@@ -57,16 +76,8 @@ namespace DevBlog
                 using (StreamReader sr = new StreamReader(path))
                 {
                     var data = sr.ReadToEnd();
-                    List<Blogger> Blg = new List<Blogger>();
-                    // while (data.Length > 0)
-                    // {
-                    ProcessString(data);
-                    // int ID = Convert.ToInt32()
-                    // Blg.Add()
-                    // Blg[0].Display();
-                    // }
-
-                    return data;
+                    Blg = ProcessString(data);
+                    return Blg;
                 }
             }
             catch (Exception e)
@@ -74,7 +85,7 @@ namespace DevBlog
                 // Let the user know what went wrong.
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(e.Message);
-                return "";
+                return Blg;
             }
         }
     }
