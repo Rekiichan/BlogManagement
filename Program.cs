@@ -142,10 +142,10 @@
                 case 4:
                     {
                         Blg = Utility.ReadToTextFile(Blogger._filePath);
+                        Console.WriteLine($"No.  ID      Name            Phone      Birthday   Email       RegistrationDate  Gender  Address");
                         for (var i = 0; i < Blg.Count; i++)
                         {
-                            Console.WriteLine();
-                            Blogger.Display(Blg[i]);
+                            Console.WriteLine($"{i + 1}    {Blg[i].ID}   {Blg[i].Name}            {Blg[i].Phone}           {Blg[i].BirthDate.ToString("MM/dd/yyyy")}   {Blg[i].Email}            {Blg[i].RegistrationDate.ToString("MM/dd/yyyy")}  {Blg[i].Gender}  {Blg[i].Address}");
                         }
                         break;
                     }
