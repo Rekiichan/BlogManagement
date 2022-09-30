@@ -15,24 +15,37 @@ namespace BlogManagement
                 var file = File.Create(path);
                 file.Close();
             }
-            using (StreamWriter writer = new StreamWriter(path))
+            using (StreamWriter writer = new StreamWriter(path,append: true))
             {
+
                 writer.Write(data.ID);
-                writer.Write(",");
+                writer.Write(", ");
                 writer.Write(data.Name);
-                writer.Write(",");
+                writer.Write(", ");
                 writer.Write(data.Phone);
-                writer.Write(",");
+                writer.Write(", ");
                 writer.Write(data.BirthDate.ToString("MM/dd/yyyy"));
-                writer.Write(",");
+                writer.Write(", ");
                 writer.Write(data.Email);
-                writer.Write(",");
+                writer.Write(", ");
                 writer.Write(data.RegistrationDate.ToString("MM/dd/yyyy"));
-                writer.Write(",");
+                writer.Write(", ");
                 writer.Write(data.Gender);
-                writer.Write(",");
+                writer.Write(", ");
                 writer.Write(data.Address);
-                writer.Write("\n");
+            }
+        }
+
+        public static void UpdateToTextFile(string path, ref List<Blogger> data)
+        { 
+            File.Delete(path);    
+            foreach (var item in data)
+            {
+                WriteToTextFile(path, item);
+                using (StreamWriter writer = new StreamWriter(path, append: true))
+                {
+                    writer.Write("\n");
+                }
             }
         }
 

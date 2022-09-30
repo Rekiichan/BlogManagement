@@ -75,10 +75,10 @@ namespace BlogManagement
             year = Convert.ToInt32(Console.ReadLine());
             blg.RegistrationDate = new DateTime(year, month, day);
 
-            System.Console.WriteLine($"Enter Gender: ");
+            System.Console.Write($"Enter Gender: ");
             blg.Gender = Console.ReadLine();
 
-            System.Console.WriteLine($"Enter Address: ");
+            System.Console.Write($"Enter Address: ");
             blg.Address = Console.ReadLine();
 
             Utility.WriteToTextFile(_filePath, blg);
@@ -88,27 +88,21 @@ namespace BlogManagement
         {
             if (sortType == "Name")
             {
-                //Adding names of the bloggers to the list
                 List<Blogger> list = new List<Blogger>(listBloggers);
                 for (var i = 0; i < listBloggers.Count; i++)
                 {
                     list.Add(listBloggers[i]);
                 }
-
-                //implementing bubble sort algorithm
                 for (int i = list.Count - 1; i > 0; i--)
                 {
                     for (int j = 0; j <= i - 1; j++)
                     {
-                        //comparing the names from the list with each other
                         if (list[j].Equals(list[j + 1]))
                         {
-                            //swapping names if current element is greater than next element
                             var tmp = list[j];
                             list[j] = list[j + 1];
                             list[j + 1] = tmp;
 
-                            //swapping the whole list of bloggers in ascending order according to the name 
                             Blogger nameLists = listBloggers[j];
                             listBloggers[j] = listBloggers[j + 1];
                             listBloggers[j + 1] = nameLists;
