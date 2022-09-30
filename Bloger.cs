@@ -43,18 +43,18 @@ namespace BlogManagement
             Gender = _gender;
             Address = _address;
         }
-        public void AddBlog(Blogger blg)
+        public static void AddBlog(Blogger blg)
         {
             Random r = new Random();
             blg.ID = r.Next(10000, 100000);
 
-            System.Console.WriteLine($"Enter Name: ");
+            Console.WriteLine($"Enter Name: ");
             blg.Name = Console.ReadLine();
 
-            System.Console.WriteLine($"Enter Phone: ");
+            Console.WriteLine($"Enter Phone: ");
             blg.Phone = Console.ReadLine();
 
-            System.Console.WriteLine($"Enter BirthDate: ");
+            Console.WriteLine($"Enter BirthDate: ");
             Console.Write("Enter a month: ");
             int month = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter a day: ");
@@ -63,10 +63,10 @@ namespace BlogManagement
             int year = Convert.ToInt32(Console.ReadLine());
             blg.BirthDate = new DateTime(year, month, day);
 
-            System.Console.WriteLine($"Enter Email: ");
+            Console.WriteLine($"Enter Email: ");
             blg.Email = Console.ReadLine();
 
-            System.Console.WriteLine($"Enter Registration Date: ");
+            Console.WriteLine($"Enter Registration Date: ");
             Console.Write("Enter a month: ");
             month = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter a day: ");
@@ -75,10 +75,10 @@ namespace BlogManagement
             year = Convert.ToInt32(Console.ReadLine());
             blg.RegistrationDate = new DateTime(year, month, day);
 
-            System.Console.Write($"Enter Gender: ");
+            Console.Write($"Enter Gender: ");
             blg.Gender = Console.ReadLine();
 
-            System.Console.Write($"Enter Address: ");
+            Console.Write($"Enter Address: ");
             blg.Address = Console.ReadLine();
 
             Utility.WriteToTextFile(_filePath, blg);
