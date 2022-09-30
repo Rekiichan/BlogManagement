@@ -123,26 +123,30 @@
                         Utility.UpdateToTextFile(Blogger._filePath, ref Blg);
                         break;
                     }
-                // case 3:
-                // {
-                //     Blogger tmp = new Blogger();
-                //     tmp.AddBlog(tmp);
-                //     Blg.Add(tmp);
-                //     break;
-                // }
+                case 3:
+                    {
+                        Console.Write("Choose the blog ID that you want to delete: ");
+                        Console.Write($"\nPlease enter the ID of blogger that you want to edit: ");
+                        Console.Write($"\nNumber      ID      Name\n");
+                        for (int i = 0; i < Blg.Count; i++)
+                        {
+                            Console.WriteLine($"{i+1}           {Blg[i].ID}   {Blg[i].Name}");
+                        }
+                        Console.Write("Your Choose: ");
+                        int KeyID = Convert.ToInt32(Console.ReadLine());
+                        KeyID--;
+                        Blg.RemoveAt(KeyID);
+                        Utility.UpdateToTextFile(Blogger._filePath,ref Blg);
+                        break;
+                    }
                 case 4:
                     {
                         Blg = Utility.ReadToTextFile(Blogger._filePath);
                         for (var i = 0; i < Blg.Count; i++)
                         {
+                            Console.WriteLine();
                             Blogger.Display(Blg[i]);
                         }
-                        break;
-                    }
-                case 5:
-                    {
-                        var data = Utility.ReadToTextFile(Blogger._filePath);
-                        // System.Console.WriteLine(data);
                         break;
                     }
                 default:
