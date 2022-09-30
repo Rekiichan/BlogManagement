@@ -1,0 +1,15 @@
+D:\visualWorkspace\BlogManagement\BlogManagement\bin\Debug\net6.0\BlogManagement.exe
+D:\visualWorkspace\BlogManagement\BlogManagement\bin\Debug\net6.0\BlogManagement.deps.json
+D:\visualWorkspace\BlogManagement\BlogManagement\bin\Debug\net6.0\BlogManagement.runtimeconfig.json
+D:\visualWorkspace\BlogManagement\BlogManagement\bin\Debug\net6.0\BlogManagement.dll
+D:\visualWorkspace\BlogManagement\BlogManagement\bin\Debug\net6.0\BlogManagement.pdb
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\BlogManagement.csproj.AssemblyReference.cache
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\BlogManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\BlogManagement.AssemblyInfoInputs.cache
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\BlogManagement.AssemblyInfo.cs
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\BlogManagement.csproj.CoreCompileInputs.cache
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\BlogManagement.dll
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\refint\BlogManagement.dll
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\BlogManagement.pdb
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\BlogManagement.genruntimeconfig.cache
+D:\visualWorkspace\BlogManagement\BlogManagement\obj\Debug\net6.0\ref\BlogManagement.dll
