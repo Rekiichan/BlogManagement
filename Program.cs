@@ -1,5 +1,21 @@
-﻿namespace BlogManagement
+﻿using BlogManagement.Database;
+using Microsoft.Extensions.Configuration;
+
+namespace BlogManagement
 {
+    public class processDtb
+    {
+        private static IConfiguration configuration1;
+        static List<Blogger> ReadDataFromDatabase()
+        {
+            var builder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", false, true);
+            configuration1 = builder.Build();
+            Dtb db = new Dtb(configuration1);
+            return db.GetBloggers();
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
