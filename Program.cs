@@ -21,8 +21,7 @@
             {
                 case 1:
                     {
-                        Menu.AddBlogger();
-                        Utility.UpdateToTextFile(Blogger._filePath, ref Blg);
+                        Menu.AddBlogger(Blg);
                         break;
                     }
                 case 2:

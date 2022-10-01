@@ -48,10 +48,10 @@ namespace BlogManagement
             Random r = new Random();
             blg.ID = r.Next(10000, 100000);
 
-            Console.WriteLine($"Enter Name: ");
+            Console.Write($"Enter Name: ");
             blg.Name = Console.ReadLine();
 
-            Console.WriteLine($"Enter Phone: ");
+            Console.Write($"Enter Phone: ");
             blg.Phone = Console.ReadLine();
 
             Console.WriteLine($"Enter BirthDate: ");
@@ -63,7 +63,7 @@ namespace BlogManagement
             int year = Convert.ToInt32(Console.ReadLine());
             blg.BirthDate = new DateTime(year, month, day);
 
-            Console.WriteLine($"Enter Email: ");
+            Console.Write($"Enter Email: ");
             blg.Email = Console.ReadLine();
 
             Console.WriteLine($"Enter Registration Date: ");

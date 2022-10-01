@@ -9,10 +9,12 @@ namespace BlogManagement
 {
     internal class Menu : Blogger
     {
-        public static void AddBlogger()
+        public static void AddBlogger(List<Blogger> Blg)
         {
             Blogger blg = new Blogger();
             AddBlog(blg);
+            Blg.Add(blg);
+            Utility.UpdateToTextFile(_filePath, ref Blg);
         }
         public static void EditBlogger(List<Blogger> Blg)
         {
